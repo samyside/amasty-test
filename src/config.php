@@ -3,7 +3,7 @@
 return [
     'database' => [
         'host' => 'localhost',
-        'dbname' => '',
+        'dbname' => 'pizza_terminal',
         'user' => 'root',
         'password' => '',
     ]

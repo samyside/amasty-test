@@ -29,7 +29,7 @@ class Connection
         }
     }
 
-    public static function getInstance(): Connection
+    public static function getInstance()
     {
         if (self::$instance === null) {
             self::$instance = new self();
@@ -38,7 +38,7 @@ class Connection
         return self::$instance;
     }
 
-    public function getConnection(): PDO
+    public function getConnection()
     {
         return $this->pdo;
     }

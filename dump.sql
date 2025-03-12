@@ -1,31 +1,39 @@
+DROP DATABASE IF EXISTS pizza_terminal;
+CREATE DATABASE pizza_terminal;
+USE pizza_terminal;
+
+-- DROP TABLE IF EXISTS pizzas;
 CREATE TABLE pizzas (
-    pizza_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     pizza_type VARCHAR(255) NOT NULL,
     base_price_usd DECIMAL(10, 2) NOT NULL
 );
 
+-- DROP TABLE IF EXISTS pizza_sizes;
 CREATE TABLE pizza_sizes (
-    size_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     size_cm INT NOT NULL,
     price_multiplier DECIMAL(4, 2) NOT NULL
 );
 
+-- DROP TABLE IF EXISTS sauces;
 CREATE TABLE sauces (
-    sauce_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     sauce_name VARCHAR(255) NOT NULL,
     price_usd DECIMAL(10, 2) NOT NULL
 );
 
+-- DROP TABLE IF EXISTS orders;
 CREATE TABLE orders (
-    order_id INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     pizza_id INT NOT NULL,
     size_id INT NOT NULL,
     sauce_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     total_price_byn DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (pizza_id) REFERENCES pizzas(pizza_id),
-    FOREIGN KEY (size_id) REFERENCES pizza_sizes(size_id),
-    FOREIGN KEY (sauce_id) REFERENCES sauces(sauce_id)
+    FOREIGN KEY (pizza_id) REFERENCES pizzas(id),
+    FOREIGN KEY (size_id) REFERENCES pizza_sizes(id),
+    FOREIGN KEY (sauce_id) REFERENCES sauces(id)
 );
 
 -- Заполните таблицы данными
